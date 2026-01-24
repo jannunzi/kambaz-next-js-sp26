@@ -1,0 +1,116 @@
+/* p {
+  background-color: green;
+  color: white;
+} */
+.wd-fg-color-black {
+  color: black;
+}
+.wd-fg-color-white {
+  color: white;
+}
+.wd-fg-color-blue {
+  color: #7070ff;
+}
+.wd-fg-color-red {
+  color: #ff7070;
+}
+.wd-fg-color-green {
+  color: green;
+}
+.wd-bg-color-yellow {
+  background-color: #ffff07;
+}
+.wd-bg-color-blue {
+  background-color: #7070ff;
+}
+.wd-bg-color-red {
+  background-color: #ff7070;
+}
+.wd-bg-color-green {
+  background-color: green;
+}
+.wd-bg-color-gray {
+  background-color: lightgray;
+}
+
+.wd-dimension-portrait {
+  width: 75px;
+  height: 100px;
+}
+.wd-dimension-landscape {
+  width: 100px;
+  height: 75px;
+}
+.wd-dimension-square {
+  width: 75px;
+  height: 75px;
+}
+
+.wd-pos-relative-nudge-up-right {
+  position: relative;
+  bottom: 30px;
+  left: 30px;
+}
+
+.wd-pos-relative-nudge-down-right {
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+.wd-pos-relative {
+  position: relative;
+}
+
+.wd-pos-absolute-10-10 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.wd-pos-absolute-50-50 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+.wd-pos-absolute-120-20 {
+  position: absolute;
+  top: 20px;
+  left: 120px;
+}
+.wd-pos-fixed {
+  position: fixed;
+  right: 0px;
+  bottom: 50%;
+}
+
+.wd-zindex-bring-to-front {
+  z-index: 10;
+}
+
+/* Default styles */
+.wd-media-queries-demo {
+  background-color: green;
+  color: white;
+}
+
+/* Style between 750px and 1000px */
+@media (min-width: 750px) and (max-width: 1000px) {
+  .wd-media-queries-demo {
+    background-color: yellow;
+    color: black;
+  }
+}
+/* Style between 1000px and 1250px */
+@media (min-width: 1000px) and (max-width: 1250px) {
+  .wd-media-queries-demo {
+    background-color: blue;
+    color: white;
+  }
+}
+
+/* Style for widths greater than 1250px */
+@media (min-width: 1250px) {
+  .wd-media-queries-demo {
+    background-color: red;
+    color: white;
+  }
+}
