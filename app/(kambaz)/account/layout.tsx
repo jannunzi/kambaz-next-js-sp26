@@ -4,19 +4,11 @@ export default function AccountLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <div>
-      <table>
-        <tbody>
-          <tr>
-            <td valign="top">
-              <AccountNavigation />
-            </td>
-            <td valign="top" width="100%">
-              {children}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="d-flex">
+      <div className="d-none d-sm-block">
+        <AccountNavigation />
+      </div>
+      <div className="flex-fill">{children}</div>
     </div>
   );
 }

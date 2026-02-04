@@ -1,62 +1,66 @@
 import Link from "next/link";
-import Image from "next/image";
+import {
+  Row,
+  Col,
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardText,
+  Button,
+} from "react-bootstrap";
+import CourseCard from "./CourseCard";
+
 export default function Dashboard() {
   return (
     <div id="wd-dashboard">
-      <h1 id="wd-dashboard-title">Dashboard</h1> <hr />
-      <h2 id="wd-dashboard-published">Published Courses (12)</h2> <hr />
+      <h1>Dashboard</h1> <hr />
+      <h2>Published Courses (12)</h2> <hr />
       <div id="wd-dashboard-courses">
-        <div className="wd-dashboard-course">
-          <Link href="/courses/1234" className="wd-dashboard-course-link">
-            <Image
-              src="/images/reactjs.png"
-              width={200}
-              height={150}
-              alt={"React JS"}
+        <Row xs={1} md={5} className="g-4">
+          <Col className="wd-dashboard-course" style={{ width: "300px" }}>
+            <CourseCard
+              id="1234"
+              title="CS1234 React JS"
+              description="Full Stack software developer"
             />
-            <div>
-              <h5> CS1234 React JS </h5>
-              <p className="wd-dashboard-course-title">
-                Full Stack software developer
-              </p>
-              <button> Go </button>
-            </div>
-          </Link>
-        </div>
-        <div className="wd-dashboard-course">
-          <Link href="/courses/2345" className="wd-dashboard-course-link">
-            <Image
-              src="/images/reactjs.png"
-              width={200}
-              height={150}
-              alt={"React JS"}
+          </Col>
+          <Col className="wd-dashboard-course" style={{ width: "300px" }}>
+            <CourseCard
+              id="5678"
+              title="CS5678 Advanced React"
+              description="Advanced concepts in React development"
             />
-            <div>
-              <h5> CS2345 React JS </h5>
-              <p className="wd-dashboard-course-title">
-                Full Stack software developer
-              </p>
-              <button> Go </button>
-            </div>
-          </Link>
-        </div>
-        <div className="wd-dashboard-course">
-          <Link href="/courses/3456" className="wd-dashboard-course-link">
-            <Image
-              src="/images/reactjs.png"
-              width={200}
-              height={150}
-              alt={"React JS"}
+          </Col>
+          <Col className="wd-dashboard-course" style={{ width: "300px" }}>
+            <CourseCard
+              id="91011"
+              title="CS91011 Next.js Basics"
+              description="Introduction to Next.js framework"
             />
-            <div>
-              <h5> CS3456 React JS </h5>
-              <p className="wd-dashboard-course-title">
-                Full Stack software developer
-              </p>
-              <button> Go </button>
-            </div>
-          </Link>
-        </div>
+          </Col>
+          <Col className="wd-dashboard-course" style={{ width: "300px" }}>
+            <CourseCard
+              id="91011"
+              title="CS91011 Next.js Basics"
+              description="Introduction to Next.js framework"
+            />
+          </Col>
+          <Col className="wd-dashboard-course" style={{ width: "300px" }}>
+            <CourseCard
+              id="91011"
+              title="CS91011 Next.js Basics"
+              description="Introduction to Next.js framework"
+            />
+          </Col>
+          <Col className="wd-dashboard-course" style={{ width: "300px" }}>
+            <CourseCard
+              id="91011"
+              title="CS91011 Next.js Basics"
+              description="Introduction to Next.js framework"
+            />
+          </Col>
+        </Row>
       </div>
     </div>
   );
