@@ -1,53 +1,63 @@
-import { AiOutlineDashboard } from "react-icons/ai";
-import { IoCalendarOutline } from "react-icons/io5";
-import { LiaBookSolid, LiaCogSolid } from "react-icons/lia";
-import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
-import { ListGroup, ListGroupItem } from "react-bootstrap";
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ListGroup, ListGroupItem } from "react-bootstrap";
+import { CiBeaker1 } from "react-icons/ci";
+import { FaBookDead, FaCalendarAlt, FaRegUserCircle } from "react-icons/fa";
+import { MdSpaceDashboard } from "react-icons/md";
 export default function KambazNavigation() {
+  const pathname = usePathname();
+  const links = [
+    {
+      href: "/account",
+      label: "Account",
+      icon: <FaRegUserCircle className="fs-1 text-danger" />,
+    },
+    {
+      href: "/dashboard",
+      label: "Dashboard",
+      icon: <MdSpaceDashboard className="fs-1 text-danger" />,
+    },
+    {
+      href: "/dashboard",
+      label: "Courses",
+      icon: <FaBookDead className="fs-1 text-danger" />,
+    },
+    {
+      href: "/calendar",
+      label: "Calendar",
+      icon: <FaCalendarAlt className="fs-1 text-danger" />,
+    },
+    {
+      href: "/inbox",
+      label: "Inbox",
+      icon: <FaRegUserCircle className="fs-1 text-danger" />,
+    },
+    {
+      href: "/labs",
+      label: "Labs",
+      icon: <CiBeaker1 className="fs-1 text-danger" />,
+    },
+  ];
   return (
     <ListGroup
-      className="rounded-0 position-fixed bottom-0 top-0
-                         d-none d-md-block bg-black z-2"
-      style={{ width: 120 }}
+      className="rounded-0 position-fixed bottom-0 top-0  bg-black z-2"
+      style={{ width: "140px" }}
     >
-      <ListGroupItem
-        className="bg-black border-0 text-center"
-        as="a"
-        target="_blank"
-        href="https://www.northeastern.edu/"
-      >
-        <img src="/images/NEU.png" width="75px" alt="Northeastern University" />
+      <ListGroupItem className="bg-black text-danger border-0">
+        {" "}
+        Northeastern{" "}
       </ListGroupItem>
-      <br />
-      <ListGroupItem className="border-0 bg-black text-center">
-        <Link
-          href="/account"
-          id="wd-account-link"
-          className="text-white text-decoration-none"
+      {links.map((link) => (
+        <ListGroupItem
+          key={link.label}
+          as={Link}
+          href={link.href}
+          className={`${pathname.includes(link.label.toLowerCase()) ? "bg-white text-danger" : "bg-black text-white"} text-center border-0`}
         >
-          <FaRegCircleUser className="fs-1 text-white" />
-          <br />
-          Account{" "}
-        </Link>
-      </ListGroupItem>
-      <br />
-      <ListGroupItem
-        className="border-0
-                  bg-white text-center"
-      >
-        <Link
-          href="/dashboard"
-          className="text-danger
-           text-decoration-none"
-        >
-          <AiOutlineDashboard className="fs-1 text-danger" />
-          <br />
-          Dashboard
-        </Link>
-      </ListGroupItem>
-      <br />
-      {/* complete styling the rest of the links */}
+          {link.icon} <br /> {link.label}{" "}
+        </ListGroupItem>
+      ))}
     </ListGroup>
   );
 }

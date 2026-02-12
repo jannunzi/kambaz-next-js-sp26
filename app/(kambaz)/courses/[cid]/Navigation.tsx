@@ -1,55 +1,30 @@
+"use client";
 import Link from "next/link";
+import { useParams, usePathname } from "next/navigation";
 export default function CourseNavigation() {
+  const { cid } = useParams();
+  const pathname = usePathname();
+  const links = [
+    { href: "home", label: "Home" },
+    { href: "modules", label: "Modules" },
+    { href: "piazza", label: "Piazza" },
+    { href: "zoom", label: "Zoom" },
+    { href: "assignments", label: "Assignments" },
+    { href: "quizzes", label: "Quizzes" },
+    { href: "grades", label: "Grades" },
+    { href: "people/table", label: "People" },
+  ];
   return (
-    <div className="wd list-group fs-5 rounded-0">
-      <Link
-        href="/courses/1234/home"
-        className="list-group-item active border-0"
-      >
-        Home
-      </Link>
-      <Link
-        href="/courses/1234/modules"
-        className="list-group-item text-danger border-0"
-      >
-        Modules
-      </Link>
-      <Link
-        href="/courses/1234/Piazza"
-        className="list-group-item text-danger border-0"
-      >
-        Piazza{" "}
-      </Link>
-      <Link
-        href="/courses/1234/Zoom"
-        className="list-group-item text-danger border-0"
-      >
-        Zoom{" "}
-      </Link>
-      <Link
-        href="/courses/1234/assignments"
-        className="list-group-item text-danger border-0"
-      >
-        Assignments{" "}
-      </Link>
-      <Link
-        href="/courses/1234/Quizzes"
-        className="list-group-item text-danger border-0"
-      >
-        Quizzes{" "}
-      </Link>
-      <Link
-        href="/courses/1234/Grades"
-        className="list-group-item text-danger border-0"
-      >
-        Grades{" "}
-      </Link>
-      <Link
-        href="/courses/1234/people/table"
-        className="list-group-item text-danger border-0"
-      >
-        People{" "}
-      </Link>
+    <div className="rounded-0 border-0 list-group">
+      {links.map((link) => (
+        <Link
+          key={link.href}
+          href={`/courses/${cid}/${link.href}`}
+          className={`list-group-item ${pathname.endsWith(link.href) ? "active" : "text-danger"} border-0`}
+        >
+          {link.label}
+        </Link>
+      ))}
     </div>
   );
 }

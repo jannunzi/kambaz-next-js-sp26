@@ -5,7 +5,7 @@ export default function LabsLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <table width="100%">
+    <table width="100%" cellPadding="10" cellSpacing="0">
       <tbody>
         <tr>
           <td valign="top" width="100px">
